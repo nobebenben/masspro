@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 
     //load our sample JSON file - for development of the colored meshes from GH
-    $.getJSON('http://anyorigin.com/get?url=https%3A//drive.google.com/open%3Fid%3D0Bw6wSv2GV4RkaWdwMTZVVU9JUm8&callback=?', function( data ){
+    $.getJSON('https://drive.google.com/open?id=0Bw6wSv2GV4Rkb2VEM1hONk9za28', function( data ){
 
         //once loaded, initialize a Spectacles viewer by passing in the div to bind to, the json data, and a callback function
         //where we can enable application functionality in nice clean chunks
