@@ -89,7 +89,7 @@
              'autorename': false,
             });
 
-    var content = [document.getElementById("slider1").value, document.getElementById("slider2").value, document.getElementById("slider3").value];
+    var content = [document.getElementById("slider1").value, document.getElementById("slider2").value, document.getElementById("slider3").value,document.getElementById("slider4").value, document.getElementById("slider5").value, document.getElementById("slider6").value,document.getElementById("slider7").value, document.getElementById("slider8").value, document.getElementById("slider9").value];
     var accessToken = "B_V2MDCItEcAAAAAAAAFJ5wWNlcm8564mZvaNnReaiWoPqliADgJ_ofMI1l_eaae";
     var uploadUrl = "https://content.dropboxapi.com/2/files/upload"
     var result;
