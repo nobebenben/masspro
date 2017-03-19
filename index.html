@@ -56,6 +56,111 @@
 </head>
 <body>
 
+       <div class="container_12">
+
+        <div class="grid_4">
+            <p><u>Overall dimention:</u></p>
+            <p>X:</p>
+            <input id="slider1" type="range" min="300" max="800" value="500" step="5" onchange="showValue('range1', 'slider1')" />
+            <span id="range1">500</span>
+            <p>Y:</p>
+            <input id="slider2" type="range" min="0" max="100" value="50" step="5" onchange="showValue('range2', 'slider2')" />
+            <span id="range2">50</span>
+            <p>Z:</p>
+            <input id="slider3" type="range" min="200" max="300" value="250" step="5" onchange="showValue('range3', 'slider3')" />
+            <span id="range3">250</span>
+        </div>
+        
+        <div class="grid_4">
+            <p><u>Rows and Columns:</u></p>
+            <p># of rows:</p>
+            <input id="slider4" type="range" min="2" max="20" value="3" step="1" onchange="showValue('range4', 'slider4')" />
+            <span id="range4">3</span>
+            <p># of columns:</p>
+            <input id="slider5" type="range" min="2" max="20" value="7" step="1" onchange="showValue('range5', 'slider5')" />
+            <span id="range5">7</span>
+        </div>
+        
+        <div class="grid_4">
+            <p><u>Cutting plane:</u></p>
+            <p>rotation angle X(aX):</p>
+            <input id="slider6" type="range" min="0" max="90" value="30" step="1" onchange="showValue('range6', 'slider6')" />
+            <span id="range6">30</span>
+            <p>rotation angle Y(aY):</p>
+            <input id="slider7" type="range" min="0" max="90" value="50" step="1" onchange="showValue('range7', 'slider7')" />
+            <span id="range7">50</span>
+            <p>rotation angle Z(aZ):</p>
+            <input id="slider8" type="range" min="0" max="90" value="20" step="1" onchange="showValue('range8', 'slider8')" />
+            <span id="range8">20</span>
+            <p>Distance(D):</p>
+            <input id="slider9" type="range" min="0" max="750" value="100" step="5" onchange="showValue('range9', 'slider9')" />
+            <span id="range9">100</span>
+        </div>
+        
+        <div class="clear"></div>
+
+    </div>
+    
+    <script>
+     
+        function showValue(outputId, sliderId)
+        {
+        	document.getElementById(outputId).innerHTML=document.getElementById(sliderId).value;
+        }
+    
+    </script>
+
+
+
+
+    <div class="container_12">
+
+        <div class="grid_4">
+            <p></p>
+        </div>
+        <div class="grid_4">
+            <button onclick="sendToMyDrop()">Send</button>
+        </div>
+        <div class="grid_4">
+            <p></p>
+        </div>
+        <div class="clear"></div>
+    
+    </div>
+
+  <script>  
+   
+    function sendToMyDrop() {
+    var args = JSON.stringify({
+             'path': '/mass customization/test_javascript_upload.csv',
+             'mode': 'overwrite',
+             'autorename': false,
+            });
+
+    var content = [document.getElementById("slider1").value, document.getElementById("slider2").value, document.getElementById("slider3").value,document.getElementById("slider4").value, document.getElementById("slider5").value, document.getElementById("slider6").value,document.getElementById("slider7").value, document.getElementById("slider8").value, document.getElementById("slider9").value];
+    var accessToken = "B_V2MDCItEcAAAAAAAAFJ5wWNlcm8564mZvaNnReaiWoPqliADgJ_ofMI1l_eaae";
+    var uploadUrl = "https://content.dropboxapi.com/2/files/upload"
+    var result;
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+     if (xhr.readyState === 4) {
+     result = xhr.responseText;
+     console.log(result);
+     }
+    };
+    xhr.open("POST", uploadUrl, true);
+    xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+    xhr.setRequestHeader("Content-type", "application/octet-stream");
+    xhr.setRequestHeader("Dropbox-API-Arg", args);
+    xhr.send(content);
+    }
+
+
+    
+  </script>  
+
+    
 <div class="container_12">
     <div class="grid_12">
         <h1>Unit 3D Viewer</h1>
