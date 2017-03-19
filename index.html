@@ -161,7 +161,7 @@
 	$(document).ready(reloadViewer());
 
 	function reloadViewer() {
-		$("#Spectacles_output").innerHTML = null;
+		$("#Spectacles_output").empty();
 		$.getJSON('https://dl.dropboxusercontent.com/s/769vne3hpieqdsl/tempjson.json', function( data ){
 			mySpectacles = new SPECTACLES($("#Spectacles_output"), data, function(app){
 				app.setBackgroundColor(0xFFFFFF);
