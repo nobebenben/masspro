@@ -146,7 +146,7 @@
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState === 4) {
 				result = xhr.responseText;
-				console.log(result);
+				console.log('xhr',result);
 				setTimeout(reloadViewer(), 20000);
 			}
 		};
@@ -161,6 +161,7 @@
 	$(document).ready(reloadViewer());
 
 	function reloadViewer() {
+		console.log('reload again...');
 		$("#Spectacles_output").empty();
 		$.getJSON('https://dl.dropboxusercontent.com/s/769vne3hpieqdsl/tempjson.json', function( data ){
 			mySpectacles = new SPECTACLES($("#Spectacles_output"), data, function(app){
