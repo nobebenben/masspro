@@ -147,7 +147,7 @@
 			if (xhr.readyState === 4) {
 				result = xhr.responseText;
 				console.log(result);
-				setTimeout(reloadViewer(), 10000);
+				setTimeout(reloadViewer(), 20000);
 			}
 		};
 		xhr.open("POST", uploadUrl, true);
@@ -161,6 +161,7 @@
 	$(document).ready(reloadViewer());
 
 	function reloadViewer() {
+		$("#Spectacles_output").innerHTML = null;
 		$.getJSON('https://dl.dropboxusercontent.com/s/769vne3hpieqdsl/tempjson.json', function( data ){
 			mySpectacles = new SPECTACLES($("#Spectacles_output"), data, function(app){
 				app.setBackgroundColor(0xFFFFFF);
