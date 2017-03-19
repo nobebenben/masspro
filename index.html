@@ -147,7 +147,7 @@
 			if (xhr.readyState === 4) {
 				result = xhr.responseText;
 				console.log('xhr',result);
-				setTimeout(reloadViewer(), 20000);
+				setTimeout(function(){reloadViewer()}, 20000);
 			}
 		};
 		xhr.open("POST", uploadUrl, true);
